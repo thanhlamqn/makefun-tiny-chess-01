@@ -6,6 +6,18 @@
 
 A chess engine in 4,096 bytes of Python: alpha-beta search with a transposition table, quiescence search, null-move pruning and killer moves, playing the house gauntlet through the env. No model calls; a fixed node budget per move, fully deterministic so replays match.
 
+## Source
+
+`main.py` is the packed form of `chess.py`, the readable engine. It is
+produced with the kit's own packer, never by hand:
+
+```sh
+node cli/makefun.mjs compress chess.py --out main.py
+```
+
+`chess.py` is kept beside the entry (uncommitted: the snapshot cap is
+8,192 bytes) and travels with the submission bundle as the pack source.
+
 ## Run it
 
 ```sh
